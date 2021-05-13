@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Ex02";
+}
+
+<h2>Razor view,Ex02</h2>
+
+@for (int i = 0; i < 10; i++)
+{
+    <label>@i</label>
+    <input type="text" value="@i" />
+    <input type="radio" />
+    @i
+    <input type="checkbox" />
+    @i
+    <br />
+}
+
+<br />
+<br />
+<br />
+
+
+Goto
+
+
+@Html.ActionLink("Index", "Index", "RazorDemo");
+@Html.ActionLink("Ex-01", "ex01", "RazorDemo");
+@Html.ActionLink("Ex-03", "ex03", "RazorDemo");

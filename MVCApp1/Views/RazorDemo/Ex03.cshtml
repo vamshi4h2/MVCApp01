@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Ex03";
+}
+
+<h2>Razor view,Ex03</h2>
+
+@for (int i = 0; i < 10; i++)
+{
+    <input type="button" value="@i" />
+}
+<hr />
+@{
+    string[] options = new string[] { "Create", "Update", "Retrive", "Delete" };
+}
+@for (int i = 0; i < options.Length; i++)
+{
+    <input type="button" value="@options[i]" />
+}
+
+<br />
+<br />
+<br />
+Goto
+@Html.ActionLink("Index", "Index", "RazorDemo");
+@Html.ActionLink("Ex-01", "ex01", "RazorDemo");
+@Html.ActionLink("Ex-02", "ex02", "RazorDemo");

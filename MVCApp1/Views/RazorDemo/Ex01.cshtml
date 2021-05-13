@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Ex01";
+}
+
+<h2>Razor view,Ex01</h2>
+
+@{
+    string[] cars = new string[] {"Bugatti La Voiture Noire   -  $19 million (£15m)",
+
+"Rolls-Royce Sweptail   -  $13 million (£10.2m)",
+
+"Mercedes-Benz Maybach Exelero  -   $8 million (£6.3m)",
+
+"Koenigsegg CCXR Trevita  -   $4.8 million (£3.8m)",
+
+"Lamborghini Veneno  -  $4.5 million (£3.5m)",
+
+"W Motors Lykan Hypersport  -   $3.4 million (£2.7m)",
+
+"Limited Edition Bugatti Veyron by Mansory Vivere  -   $3.4 million (£2.7m)",
+
+"Ferrari Pininfarina Sergio   -  $3 million (£2.4m)"
+};
+
+
+    List<string> coders = new List<string> { "James Gosling",
+"Linus Torvalds","Anders Hejlsberg","Tim Berners-Lee","Brian Kernighan","Ken Thompson"};
+}
+
+<h3>List Of Top Cars</h3>
+<ol>
+    @foreach (string car in cars)
+    {
+        <li>@car</li>
+    }
+</ol>
+
+<hr />
+
+<h3>List Of top Coders</h3>
+<ul>
+    @foreach (string coder in coders)
+    {
+        <li>@coder</li>
+    }
+</ul>
+<br />
+Goto
+@Html.ActionLink("Index", "Index", "RazorDemo");
+@Html.ActionLink("Ex-02", "ex02", "RazorDemo");
+@Html.ActionLink("Ex-03", "ex03", "RazorDemo");
+
+
+
+<!--
+"Bugatti La Voiture Noire   -  $19 million (£15m)",
+
+"Rolls-Royce Sweptail   -  $13 million (£10.2m)",
+
+"Mercedes-Benz Maybach Exelero  -   $8 million (£6.3m)",
+
+"Koenigsegg CCXR Trevita  -   $4.8 million (£3.8m)",
+
+"Lamborghini Veneno  -  $4.5 million (£3.5m)",
+
+"W Motors Lykan Hypersport  -   $3.4 million (£2.7m)",
+
+"Limited Edition Bugatti Veyron by Mansory Vivere  -   $3.4 million (£2.7m)",
+
+"Ferrari Pininfarina Sergio   -  $3 million (£2.4m)"
+
+
+
+
+
+
+
+
+
+    "James Gosling",
+"Linus Torvalds","Anders Hejlsberg","Tim Berners-Lee","Brian Kernighan","Ken Thompson"
+
+    -->

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdoDbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="course">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="coursename" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="specialization" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="hod" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="ids" />
+          </Key>
+          <Property Name="ids" Type="int" Nullable="false" />
+          <Property Name="sname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="courseid" Type="int" />
+        </EntityType>
+        <Association Name="FK__student__coursei__173876EA">
+          <End Role="course" Type="Self.course" Multiplicity="0..1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="courseid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AdoDbModel1StoreContainer">
+          <EntitySet Name="course" EntityType="Self.course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__student__coursei__173876EA" Association="Self.FK__student__coursei__173876EA">
+            <End Role="course" EntitySet="course" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdoDbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="courses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="coursename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="specialization" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="students" Relationship="Self.FK__student__coursei__173876EA" FromRole="course" ToRole="student" />
+        </EntityType>
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="ids" />
+          </Key>
+          <Property Name="ids" Type="Int32" Nullable="false" />
+          <Property Name="sname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="courseid" Type="Int32" />
+          <NavigationProperty Name="course" Relationship="Self.FK__student__coursei__173876EA" FromRole="student" ToRole="course" />
+        </EntityType>
+        <Association Name="FK__student__coursei__173876EA">
+          <End Role="course" Type="AdoDbModel1.courses" Multiplicity="0..1" />
+          <End Role="student" Type="AdoDbModel1.students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="courseid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AdoDbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="courses1" EntityType="AdoDbModel1.courses" />
+          <EntitySet Name="students1" EntityType="AdoDbModel1.students" />
+          <AssociationSet Name="FK__student__coursei__173876EA" Association="Self.FK__student__coursei__173876EA">
+            <End Role="course" EntitySet="courses1" />
+            <End Role="student" EntitySet="students1" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdoDbModel1StoreContainer" CdmEntityContainer="AdoDbEntities1">
+          <EntitySetMapping Name="courses1">
+            <EntityTypeMapping TypeName="AdoDbModel1.courses">
+              <MappingFragment StoreEntitySet="course">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="coursename" ColumnName="coursename" />
+                <ScalarProperty Name="specialization" ColumnName="specialization" />
+                <ScalarProperty Name="hod" ColumnName="hod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students1">
+            <EntityTypeMapping TypeName="AdoDbModel1.students">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="ids" ColumnName="ids" />
+                <ScalarProperty Name="sname" ColumnName="sname" />
+                <ScalarProperty Name="courseid" ColumnName="courseid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

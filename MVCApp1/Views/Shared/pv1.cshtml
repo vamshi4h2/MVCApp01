@@ -1,0 +1,27 @@
+﻿<h1>Partial view,Ex-01</h1>
+<!--
+Date: DateTime.Now.ToLongDateString();<br />
+Time: DateTime.Now.ToLongTimeString();
+<br />
+<br />
+<!--Hello! Model 
+<br />
+<br /> -->
+@for (int j = 1; j < 5; j++)
+{
+    @(Model+j)
+<table bgcolor="#ffffff" width="100" border="1" >
+    @for (int i = 1; i < 11; i++)
+    {
+        <tr>
+            <td align="center">@(Model+j)</td>
+            <td align="center">x</td>
+            <td align="center">@i</td>
+            <td align="center">=</td>
+            <td align="center">@((Model+j) * i)</td>
+        </tr>
+    }
+</table> 
+
+
+}

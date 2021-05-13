@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+
+}
+
+<h2>Postback Demo, Index view</h2>
+<!--
+<form method="post">
+    <input type="submit" />
+</form>
+    -->
+
+<!--Instead of forms you can use "Html Helpers" to read a input as shown below -->
+
+@using (Html.BeginForm())
+{
+    <button name="b1" value="Accept">Accept</button>
+    <button name="b1" value="Reject">Reject</button>
+
+}
+
+@ViewBag.msg
+<br />
+
+Time: @DateTime.Now.ToLongTimeString();
+<br />
+Goto:
+@Html.ActionLink("Ex01", "ex01", "PostBack")
+@Html.ActionLink("Ex02", "ex02", "PostBack")
+
+

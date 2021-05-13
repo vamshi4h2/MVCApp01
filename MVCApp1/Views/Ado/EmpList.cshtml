@@ -1,0 +1,41 @@
+﻿@using MVCApp1.Models;
+@{
+    ViewBag.Title = "EmpList";
+}
+
+
+@{
+    List<Employee> employees = ViewBag.employees;
+}
+<h2> ADO.Net, EmpList View</h2>
+<br />
+@Html.ActionLink("AddEmp", "Create", "Ado")
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Job</th>
+        <th>Salary</th>
+        <th>Details</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (Employee e in employees)
+    {
+        <tr>
+            <td>@e.Id</td>
+            <td>@e.Ename</td>
+            <td>@e.Job</td>
+            <td>@e.Salary</td>
+            <td>@Html.ActionLink("Select", "Details", "Ado", new { id = e.Id }, null)</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Ado", new { id = e.Id }, null);</td>
+            <td>@Html.ActionLink("Update", "Edit", "Ado", new { id = e.Id }, null);</td>
+        </tr>
+    }
+</table>
+
+
+Goto:
+
+@Html.ActionLink(" Index", "index", "Ado")

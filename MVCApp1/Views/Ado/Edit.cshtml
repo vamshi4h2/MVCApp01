@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+@using MVCApp1.Models
+
+<h2>ADO.Net,Edit view</h2>
+
+
+@{
+    Employee e = ViewBag.e;
+}
+
+@using (Html.BeginForm())
+{
+
+    @Html.Label("id", "Enter Id: ")
+    @Html.TextBox("id", e.Id, new { type = "number" });
+    <br />
+    @Html.Label("ename", "Enter Ename: ")
+    @Html.TextBox("ename", "");
+    <br />
+    @Html.Label("job", "Enter job: ")
+    @Html.TextBox("job", "");
+    <br />
+    @Html.Label("salary", "Enter Id: ")
+    @Html.TextBox("salary", "", new { type = "number" })
+    <br />
+    <button name="b3" value="up">Update</button>
+}
+
+@ViewBag.msg2
+

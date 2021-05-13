@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+@using MVCApp1.Models
+
+<h2>ADO.Net, Delete View</h2>
+
+@{
+    Employee e = ViewBag.e;
+}
+
+@using (Html.BeginForm())
+{
+
+    @Html.Label("id", "Enter Id: ")
+    @Html.TextBox("id",e.Id, new { type = "number" });
+    <br />
+    @Html.Label("ename", "Enter Ename: ")
+    @Html.TextBox("ename",e.Ename);
+    <br />
+    @Html.Label("job", "Enter job: ")
+    @Html.TextBox("job",e.Job);
+    <br />
+    @Html.Label("salary", "Enter Id: ")
+    @Html.TextBox("salary",e.Salary, new { type = "number" });
+    <br />
+    <button name="b2" value="del">Delete</button>
+}
+
+@ViewBag.msg2

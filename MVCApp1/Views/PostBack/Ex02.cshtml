@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Ex02";
+}
+
+<h2>Postback Deo, Ex02</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.Label("a", "Enter no1: ")
+    @Html.TextBox("a", "", new { type = "number" });
+    <br />
+    @Html.Label("b", "Enter no2: ")
+    @Html.TextBox("b", "", new { type = "number" });
+    <br />
+    <button name="b1" value="Addition">Addition</button>
+    <button name="b1" value="Subtraction">Subtraction</button>
+    <button name="b1" value="Multiplication">Multiplication</button>
+    <button name="b1" value="Division">Division</button>
+}
+@ViewBag.msg
+<br />
+Goto:
+@Html.ActionLink("Index", "Index", "PostBack")
+@Html.ActionLink("Ex01", "ex01", "PostBack")

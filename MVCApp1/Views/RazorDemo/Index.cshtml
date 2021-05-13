@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Razor Demo Index</h2>
+
+<p>Razor is a view engine, used to progress in the view in MVC.Net</p>
+Razor provided in two ways
+<br />
+
+Single line razor:
+<br />
+Date:@DateTime.Now.ToLongDateString()
+<br />
+Time:@DateTime.Now.ToLongTimeString()
+<hr />
+
+Multi line razor:
+<br />
+@{
+    string name = "vamshi";
+    string city = "Hyderabad";
+}
+
+Name: @name
+<br />
+City: @city
+<br />
+<br />
+<br />
+Goto
+<!--
+<a href="/razordemo/ex01/">Ex01</a>
+<a href="/razordemo/ex02/">Ex02</a>
+<a href="/razordemo/ex03/">Ex03</a>
+    -->
+<!--Instead of anchor tags you can use Html actionlinks as shown below-->
+
+@Html.ActionLink("Ex-01", "ex01", "RazorDemo");
+@Html.ActionLink("Ex-02", "ex02", "RazorDemo");
+@Html.ActionLink("Ex-03", "ex03", "RazorDemo");

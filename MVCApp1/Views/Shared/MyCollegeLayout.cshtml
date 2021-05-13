@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyCollegeLayout</title>
+</head>
+<body>
+    <div> 
+        <table border="1">
+            <tr>
+                <td> Logo </td>
+                <td><h1>My College</h1></td>
+
+            </tr>
+            <tr>
+                <td>
+                    Menu<br />
+                    @Html.ActionLink("Index", "index", "college")<br />
+                    @Html.ActionLink("Courses", "courses", "college")<br />
+                    @Html.ActionLink("Staff", "staff", "college")<br />
+                    @Html.ActionLink("Facilities", "facilities", "college")<br />
+                    @Html.ActionLink("ContactUs", "contactus", "college")
+                </td>
+                <td>@RenderBody()</td>
+            </tr>
+            <tr>
+                <td colspan="2">Copy rights 2021 &copy; reserved</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

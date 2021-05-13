@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+@using MVCApp1.Models
+
+<h2>ADO.Net, Create View</h2>
+
+@using (Html.BeginForm())
+{
+    <!--Html.Label("input storage var", "Display msg") -->
+    @Html.Label("id", "Enter Id: ")
+    @Html.TextBox("id", "", new { type = "number" });
+    <br />
+    @Html.Label("ename", "Enter Name: ")
+    @Html.TextBox("ename", "", new { type = "string" });
+    <br />
+    @Html.Label("job", "Enter Job: ")
+    @Html.TextBox("job", "", new { type = "string" });
+    <br />
+    @Html.Label("salary", "Enter Salary: ")
+    @Html.TextBox("salary", "", new { type = "number" });
+    <br />
+    <button name="b1" value="add">Add Details</button>
+}
+@ViewBag.msg1
+
+Goto:
+@Html.ActionLink("Index", "index", "Ado")
+@Html.ActionLink(" Employees", "EmpList", "Ado")

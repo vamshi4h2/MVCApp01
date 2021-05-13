@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+@using MVCApp1.Models
+@{
+    Employee empid = ViewBag.empid;
+}
+<h2>ADO.Net, Employee Details</h2>
+
+ID:@empid.Id
+<br />
+Name:@empid.Ename
+<br />
+Job:@empid.Job
+<br />
+Salary:@empid.Salary
+<br />
+Goto:
+@Html.ActionLink("Index", "index", "Ado")   
+@Html.ActionLink(" Employees", "EmpList", "Ado")
